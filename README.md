@@ -1,2 +1,24 @@
-# Robert-RubyBudget
-RubyBudget is a cutting-edge personal budget app meticulously crafted using the power and elegance of Ruby on Rails. With its sleek design and intuitive interface, RubyBudget empowers users to take control of their finances effortlessly. Track your income and expenses, set budget goals, and receive insightful financial reports.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
