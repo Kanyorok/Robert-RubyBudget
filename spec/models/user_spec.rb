@@ -2,7 +2,7 @@ require 'rails_helper'
 # frozen_string_literal: true
 
 RSpec.describe User, type: :model do
-  subject(:user) { User.new(full_name: 'James', email: 'rt@gmail.com', password:'rest12345') }
+  subject(:user) { User.new(full_name: 'James', email: 'rt@gmail.com', password: 'rest12345') }
   before { subject.save }
   it 'is valid subject' do
     expect(user).to be_valid
