@@ -16,4 +16,20 @@ class HomeController < ApplicationController
       redirect_to new_user_session_path, notice: 'Please sign in to view your categories.'
     end
   end
+
+  def create
+    @category = GroupTransaction.new(category_params)
+    @category.user_id = current_user.id
+    if @category.save
+      redirect_to categories_path, notice: 'Category added'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def category_params
+    params.permit(:name, :icon)
+  end
 end

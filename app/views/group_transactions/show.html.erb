@@ -1,0 +1,31 @@
+<div class="container mt-0">
+<div class="d-flex justify-content-between bg-primary text-light align-items-center">
+<%= link_to group_transaction_path do %>
+  <i class="bx bxs-chevron-left display-4 text-white"></i>
+<% end %>
+  <h3 class="card-title"><%= @group_transaction.name %></h3>
+  <h3 class="card-subtitle">$300</h3>
+</div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="mt-4 purchases">
+            <% @group_transaction.money_transactions.reverse.each do |p| %>
+              <div class="card mb-2">
+                <div class="card-body">
+                  <p class="card-text"><%= p.name %> - <%= p.created_at.strftime("%d %B %Y")%></p>
+                  <p class="card-text">$<%= p.amount %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="text-center mt-4">
+            <%= link_to 'Add Transaction', new_group_transaction_money_transaction_path(@group_transaction), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

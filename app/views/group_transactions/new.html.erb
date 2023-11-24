@@ -1,0 +1,20 @@
+<section class="mb-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <a href="<%= root_path %>">
+                <button class="btn btn-primary mb-4">Back</button>
+            </a>
+            <!-- Posts form-->
+            <%= form_with  model: @group_transaction, url: group_transactions_path do |form| %>
+                <div class="mb-3">
+                    <%= form.text_field :name, class: 'form-control', placeholder: "Create a Category name" %>
+                    <br/>
+                    <%= form.text_area :icon, class: "form-control", placeholder: "Enter link to image..." %>
+                </div>
+                <div class="actions">
+                    <%= form.submit 'Create Category', class: 'submit-btn' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

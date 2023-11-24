@@ -15,5 +15,8 @@
         <%= render partial: 'category', locals: { transact: transact, index: index } %>
       <% end %>
     </div>
+	<div class="text-center mt-3">
+    <%= link_to 'Add A New Category', new_group_transaction_path, class: "btn btn-primary" %>
+  </div>
   </div>
 </section>
