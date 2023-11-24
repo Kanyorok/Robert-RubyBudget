@@ -1,9 +1,9 @@
 class GroupTransactionsController < ApplicationController
   def show
-    @category = GroupTransaction.includes(:purchases).find(params[:id])
+    @category = GroupTransaction.includes(:money_transactions).find(params[:id])
     @total = 0
 
-    @category.purchases.each do |p|
+    @category.money_transactions.each do |p|
       @total += p.amount
     end
   end
