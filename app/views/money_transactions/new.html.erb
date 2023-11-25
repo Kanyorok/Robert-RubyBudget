@@ -1,13 +1,10 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between bg-primary text-light align-items-center">
-    <%= link_to group_transaction_path(@category) do %>
-    <i class="bx bxs-chevron-left display-4 text-white"></i>
-    <% end %>
     <h5 class="card-title">Add New Purchase</h5>
   </div>
 
   <%= form_with model: @purchase, url: group_transaction_money_transactions_path(@category), html: { class: 'card',id: 'purchase-form' } do |f| %>
-    <%= hidden_field_tag :category_id, @category.id %>
+    <%= hidden_field_tag :group_transaction_id, @category.id %>
 
     <div class="card-body">
       <div class="form-group">
@@ -24,7 +21,7 @@
         <label>Select Categories:</label>
         <% @user.group_transactions.each do |category| %>
         <div class="form-check">
-          <%= f.check_box :category_ids, { multiple: true, class: 'form-check-input' }, category.id, nil %>
+          <%= f.check_box :group_transaction_ids, { multiple: true, class: 'form-check-input' }, category.id, nil %>
           <%= label_tag nil, category.name, class: 'form-check-label' %>
         </div>
         <% end %>
