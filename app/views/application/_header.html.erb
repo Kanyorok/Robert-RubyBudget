@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <%= link_to 'Transactions', root_path, class: 'navbar-brand' %>
+    <form class="d-flex" role="search">
+       <button class="btn btn-outline-success" type="submit" data-bs-toggle="collapse" data-bs-target="#searchSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Search</button>
+       <div class="collapse navbar-collapse" id="searchSupportedContent">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+       </div>
+    </form>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <br/>
+        <% if user_signed_in? %>
+            <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: ['btn', 'btn-outline-success'] %>
+          <% else %>
+            <li class="nav-item">  <%= link_to 'Login', user_session_path, class: 'nav-link' %></li>
+            <li class="nav-item">  <%= link_to 'Sign up', new_user_registration_path, class: ['nav-link'] %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
