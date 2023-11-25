@@ -11,8 +11,34 @@
     </div>
     <!-- section title ends -->
     <div class="row">
-      <% @user.group_transactions.each_with_index do |transact, index| %>
-        <%= render partial: 'category', locals: { transact: transact, index: index } %>
+      <% if @user && @user.group_transactions %>
+        <% @user.group_transactions.each_with_index do |transact, index| %>
+          <div class="col-md-12">
+            <div class="media blog-media">
+              <div class="image_section">
+                <a href="blog-post-left-sidebar.html"><img src="<%= transact.icon%>"
+                  alt="Group Image" height="200" width="200"></a>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a href="/group_transactions/<%=transact.id%>">
+                    <%=transact.name%>
+                  </a>
+                </div>
+                <div class="card-body"><p><%= truncate_words(transact.desc, 4) %></p></div>
+                <div class="media-info">
+                  <ul>
+                    <li>
+                      Total Expense: $<%= @totals[index] %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No categories found.</p>
       <% end %>
     </div>
   </div>

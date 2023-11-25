@@ -1,9 +1,12 @@
 <section class="mb-5">
     <div class="card bg-light">
         <div class="card-body">
-            <a href="<%= root_path %>">
-                <button class="btn btn-primary mb-4">Back</button>
-            </a>
+            <div class="d-flex">
+                <a href="<%= root_path %>">
+                    <button class="btn btn-primary mb-4">Back</button>
+                </a>
+                <h1>Create Category</h1>
+            </div>
             <!-- Posts form-->
             <%= form_with  model: @group_transaction, url: group_transactions_path do |form| %>
                 <div class="mb-3">

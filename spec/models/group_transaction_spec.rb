@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe GroupTransaction, type: :model do
   it 'is valid with valid attributes' do
     user = User.create(full_name: 'Test User')
-    category = GroupTransaction.new(name: 'Test Category', icon: 'test_icon', user:)
+    category = GroupTransaction.new(name: 'Test Category', icon: 'test_icon', author: user)
     expect(category).to be_valid
   end
 
