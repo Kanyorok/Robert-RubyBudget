@@ -6,29 +6,29 @@ class MoneyTransactionsController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(purchase_params)
-    @purchase.author_id = current_user.id
-    @category = Category.find(params[:category_id])
+    @purchase = MoneyTransactions.new(purchase_params)
+    @purchase.user_id = current_user.id
+    @category = GroupTransaction.find(params[:group_transaction_id])
 
     if @purchase.save
-      selected_category_ids = params[:purchase][:category_ids]
-      if selected_category_ids
+      selected_group_ids = params[:money_transaction][:group_transaction_ids]
+      if selected_group_ids
         selected_category_ids.each do |category_id|
-          CategoryPurchase.create(purchase_id: @purchase.id, category_id:)
-        end
+            CategoryPurchase.create(money_transaction_id: @purchase.id, category_id:)
+          end
 
-        redirect_to category_path(selected_category_ids[0]), notice: 'Purchase added'
+        redirect_to group_transaction_path(selected_group_ids[0]), notice: 'Purchase added'
       else
-        redirect_to category_path(@category), notice: 'You must select at least one category, try again'
+        redirect_to group_transaction_path(@category), notice: 'You must select at least one category, try again'
       end
     else
       render :new
     end
   end
-    
-      private
-    
-      def purchase_params
-        params.require(:purchase).permit(:amount, :name)
-      end
+
+  private
+
+  def purchase_params
+    params.require(:money_transaction).permit(:amount, :name)
+  end
 end
