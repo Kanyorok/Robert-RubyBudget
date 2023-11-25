@@ -10,7 +10,7 @@
 					<%=transact.name%>
 				</a>
 			</div>
-			<div class="card-body"><%=transact.name%></div>
+			<div class="card-body"><p><%= truncate_words(transact.desc, 4) %></p></div>
 			<div class="media-info">
 				<ul>
 					<li>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,15 +14,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-					<%= link_to 'Create New Expense Category', user_registration_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-					<%= link_to 'Expense Categories', user_registration_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-					<%= link_to 'Create Transaction', user_registration_path, class: 'nav-link' %>
-        </li>
+        <br/>
+        <% if user_signed_in? %>
+            <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: ['btn', 'btn-outline-success'] %>
+          <% else %>
+            <li class="nav-item">  <%= link_to 'Login', user_session_path, class: 'nav-link' %></li>
+            <li class="nav-item">  <%= link_to 'Sign up', new_user_registration_path, class: ['nav-link'] %></li>
+          <% end %>
       </ul>
     </div>
   </div>

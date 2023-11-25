@@ -62,6 +62,7 @@ body {
     display: flex;
     justify-content: flex-start;
     list-style-type: none;
+    padding-left: 1rem;
   }
   
   @media (min-width: 992px) {
@@ -69,6 +70,19 @@ body {
       display: inline-flex;
       width: 100%;
     }
+  }
+
+  .custom-navbar {
+    background-color: #3778c2;
+  }
+
+  .footer-navbar {
+    background-color: #5fb523;
+  }
+
+  .custom-outline {
+    color: #fff; 
+    border-color: #fff; 
   }
   
   .media-info li {

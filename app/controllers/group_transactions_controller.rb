@@ -22,6 +22,6 @@ class GroupTransactionsController < ApplicationController
   private
 
   def category_params
-    params.permit(:name, :icon)
+    params.permit(:name, :icon, :desc)
   end
 end
