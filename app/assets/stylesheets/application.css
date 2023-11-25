@@ -62,7 +62,6 @@ body {
     display: flex;
     justify-content: flex-start;
     list-style-type: none;
-    padding-right: 15px;
   }
   
   @media (min-width: 992px) {
@@ -76,11 +75,10 @@ body {
     font-family: "inter", sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 133%;
-    color: #fff;
-    text-align: center;
-    margin-right: 32px;
+    color: blueviolet;
+    margin-right: 30px;
   }
   
   .media.blog-media .circle {

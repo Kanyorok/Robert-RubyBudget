@@ -11,7 +11,7 @@
     </div>
     <!-- section title ends -->
     <div class="row">
-      <% @user.group_transactions.each do |transact, index| %>
+      <% @user.group_transactions.each_with_index do |transact, index| %>
         <%= render partial: 'category', locals: { transact: transact, index: index } %>
       <% end %>
     </div>

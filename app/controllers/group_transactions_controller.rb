@@ -1,4 +1,5 @@
 class GroupTransactionsController < ApplicationController
+  before_action :authenticate_user!
   def show
     @category = GroupTransaction.includes(:money_transactions).find(params[:id])
     @total = 0
