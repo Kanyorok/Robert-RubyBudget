@@ -1,32 +1,71 @@
-<div class="container mt-0">
-  <div class="d-flex justify-content-between bg-primary text-light align-items-center">
-    <%= link_to group_transaction_path do %>
-    <i class="bx bxs-chevron-left display-4 text-white"></i>
-    <% end %>
-    <h3 class="card-title"><%= @category.name %></h3>
-    <h3 class="card-subtitle"><%= @total %></h3>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <div class="card">
-        <div class="card-body">
-          <p><%= @category.desc %></p>
-          <div class="mt-4 purchases">
-            <% @category.money_transactions.reverse.each do |p| %>
-              <div class="card mb-2">
-                <div class="card-body">
-                  <p class="card-text"><%= p.name %> - <%= p.created_at.strftime("%d %B %Y")%></p>
-                  <p class="card-text">$<%= p.amount %></p>
+<div>
+  <section class="my-blog-page bg-gradient">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <div class="d-flex custom-navbar flex-row-reverse text-light align-items-center p-3">
+          <%= link_to 'Most Ancient', group_transaction_path(@category, order: 'oldest'), class: 'h6 card-title ancient-link', id: 'ancient-link' %>
+          <%= link_to 'Most Recent', group_transaction_path(@category, order: 'recent'), class: 'h6 card-subtitle mx-4 recent-link', id: 'recent-link' %>
+          <div class="dot" id="active-dot"></div>
+        </div>
+        <div class="d-flex justify-content-between custom-price text-dark align-items-center p-4">
+          <h3 class="card-title">
+            <%= @category.name %>
+          </h3>
+          <h3 class="card-subtitle">
+            $ <%= @total %>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="my-blog-page bg-gradient">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <p>
+              <%= @category.desc %>
+            </p>
+            <div class="mt-4 purchases">
+              <% transactions = (@category.money_transactions.order(created_at: (params[:order] == 'recent' ? :desc : :asc))) %>
+              <% transactions.each do |p| %>
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <%= p.name %> - <%= p.created_at.strftime("%d %B %Y") %>
+                    </p>
+                    <p class="card-text">$<%= p.amount %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
-          <div class="text-center mt-4">
-            <%= link_to 'Add Transaction', new_group_transaction_money_transaction_path(@category), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <div class="text-center mt-4">
+              <%= link_to 'Add Transaction', new_group_transaction_money_transaction_path(@category), class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const ancientLink = document.getElementById('ancient-link');
+    const recentLink = document.getElementById('recent-link');
+    const activeDot = document.getElementById('active-dot');
+
+    const currentPage = window.location.pathname;
+
+    if (currentPage.includes('oldest')) {
+      ancientLink.classList.add('active');
+      activeDot.style.opacity = '1';
+      recentLink.classList.remove('active');
+    } else if (currentPage.includes('recent')) {
+      recentLink.classList.add('active');
+      activeDot.style.opacity = '1';
+      ancientLink.classList.remove('active');
+    }
+  });
+</script>
+

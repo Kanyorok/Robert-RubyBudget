@@ -9,6 +9,10 @@ body {
     padding-top: 80px;
     padding-bottom: 50px;
   }
+
+  .my-blog-page {
+    padding-bottom: 50px;
+  }
   
   .my-bio {
     padding-top: 15px;
@@ -317,6 +321,11 @@ body {
     background-color: greenyellow; /* Change the color to blue */
   }
   
+  .custom-price {
+    color: #000;
+    border: 1px solid #adb5bd;
+  }
+
   .table {
     width: 100%;
     margin-top: 1rem;
@@ -437,17 +446,6 @@ body {
     font-size: 1.2rem;
   }
   
-  .each-public-recipe-container h1,
-  .each-public-recipe-container h2,
-  .each-recipe-container h1,
-  .each-recipe-container h2,
-  .shopping-list-container h1,
-  .new-recipe-container h1 {
-    text-align: center;
-    text-decoration: underline;
-    margin: 14px;
-  }
-  
   .each-recipe-p-tag {
     font-size: 1.2rem;
   }
@@ -455,13 +453,7 @@ body {
   .each-recipe-span {
     font-weight: 500;
   }
-  
-  .shop-items-container {
-    display: flex;
-    justify-content: center;
-    margin: 14px 0;
-  }
-  
+
   .row.recipe-ingredients-container {
     border-bottom: 2px dotted;
   }
@@ -521,43 +513,40 @@ body {
     flex-direction: column;
   }
   
-  form#new-food-item-form,
-  form#add-new-recipe-form {
-    display: flex;
-    flex-direction: column;
-    min-width: 235px;
-  }
-  
-  .new-food-form-field,
-  #add-new-recipe-form .field {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-  }
-  
-  #add-new-recipe-form .field {
-    gap: 0;
-  }
-  
   .public-checkbox {
     margin: 0 0 0 0;
   }
   
-  input#add-food-item-action,
-  input#add-recipe-action {
-    margin: 11% 0;
-    border: none;
-    background: #000;
-    color: #fff;
-    padding: 12px;
-    border-radius: 4px;
+  #active-dot {
+    position: absolute;
+    bottom: -12px; /* Adjusted to be 1px below */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0; /* Initially set to fully transparent */
+    transition: opacity 0.3s ease; /* Add a transition effect for a smooth appearance */
   }
   
-  .total-foods-value {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 4% 0;
+  .ancient-link,
+  .recent-link {
+    position: relative;
+    color: white;
+    text-decoration: none; /* Remove underline */
+    opacity: 0.5; /* Faded style for inactive links */
+    transition: opacity 0.3s ease; /* Add a transition effect for a smooth appearance */
   }
+  
+  .ancient-link.active,
+  .recent-link.active {
+    color: white; /* Set text color to white for the active link */
+  }
+  
+  .ancient-link.active #active-dot,
+  .recent-link.active #active-dot {
+    opacity: 1; /* Make the dot visible for the active link */
+  }
+  
   
