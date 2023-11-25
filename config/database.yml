@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: robert_ruby_budget_production
-  username: robert_ruby_budget
-  password: <%= ENV["ROBERT_RUBY_BUDGET_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
