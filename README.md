@@ -167,7 +167,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Microverse materials and [Ruby tutorial](https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm). Also [Behance](https://www.behance.net/gregoirevella) for providing the design used to produce the app.
+I would like to thank [Behance](https://www.behance.net/gregoirevella) for providing the design used to produce the app. Also, Microverse materials and [Ruby tutorial](https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
