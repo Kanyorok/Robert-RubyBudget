@@ -13,7 +13,7 @@ class GroupTransactionsController < ApplicationController
     @category = GroupTransaction.new(category_params)
     @category.user_id = current_user.id
     if @category.save
-      redirect_to root_path, notice: 'Category added'
+      redirect_to authenticated_root_path, notice: 'Category added'
     else
       render :new
     end
