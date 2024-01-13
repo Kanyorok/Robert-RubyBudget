@@ -548,3 +548,7 @@ input#add-food-action {
 .recent-link.active #active-dot {
   opacity: 1; /* Make the dot visible for the active link */
 }
+
+.actions-btn {
+  width: 100%;
+}
