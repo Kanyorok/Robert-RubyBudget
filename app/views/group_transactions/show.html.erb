@@ -28,7 +28,7 @@
             </p>
             <div class="mt-4 purchases">
               <% transactions = (@category.money_transactions.order(created_at: (params[:order] == 'recent' ? :desc : :asc))) %>
-              <% transactions.each do |p| %>
+              <% transactions.reverse.each do |p| %>
                 <div class="card mb-2">
                   <div class="card-body">
                     <p class="card-text">

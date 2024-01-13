@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       # Retrieve the user along with their associated categories and purchases.
       @user = User.includes(group_transactions: :money_transactions).find(current_user.id)
       @totals = []
-      @user.group_transactions.each do |categ|
+      @user.group_transactions.reverse.each do |categ|
         total_amt = 0
         categ.money_transactions.each do |purch|
           total_amt += purch.amount

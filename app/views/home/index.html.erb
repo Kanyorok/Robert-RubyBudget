@@ -12,7 +12,7 @@
     <!-- section title ends -->
     <div class="row">
       <% if @user && @user.group_transactions %>
-        <% @user.group_transactions.each_with_index do |transact, index| %>
+        <% @user.group_transactions.reverse.each_with_index do |transact, index| %>
           <div class="col-md-12">
             <div class="media blog-media">
               <div class="image_section">
