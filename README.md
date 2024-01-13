@@ -120,7 +120,7 @@ To run tests, run the following command:
 
 ## Deployment <a name="deployment">
 
-GitHub: [Live Link](https://robert-budget.onrender.com)
+GitHub: [Live Link](https://robbudget.onrender.com/)
 
 Presentation: [App Presentation](https://drive.google.com/file/d/1UTUMOUe6iooLd_J7cxgLmJc4EeDuxCXX/view?usp=sharing)
 
