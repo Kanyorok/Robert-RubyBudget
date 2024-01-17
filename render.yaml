@@ -1,0 +1,18 @@
+databases:
+  - name: 	
+robert_ruby_budget_production
+    databaseName: robert_ruby_budget_production_kwc9
+    user: robert_ruby_budget_production_kwc9_user
+services:
+  - type: web
+    name: robbudget
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: robert_ruby_budget_production
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
