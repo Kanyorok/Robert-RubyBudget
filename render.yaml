@@ -1,7 +1,7 @@
 databases:
-  - name: mvrva
-    databaseName: mvrva
-    user: mvrva_user
+  - name: robert_ruby_budget_production
+    databaseName: robert_ruby_budget_production_1h0a
+    user: robert_ruby_budget_production_1h0a_user
 services:
   - type: web
     name: robbudget
@@ -11,7 +11,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mvrva_user
+          name: robert_ruby_budget_production
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
